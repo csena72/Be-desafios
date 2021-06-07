@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>Funciones constructoras y clases</title>
+  </head>
+  <body>
+    <h1>Desafío: Funciones constructoras y clases</h1>
+    <h2>Clase</h2>
+
+    <script>
+      class Usuario {
+        constructor(nombre, apellido, libros, mascotas) {
+          this.nombre = nombre;
+          this.apellido = apellido;
+          this.libros = libros;
+          this.mascotas = mascotas;
+        }
+
+        getFullName() {
+          return `${this.nombre} ${this.apellido}`;
+        }
+
+        addMascota(nuevaMascota) {
+          this.mascotas.push(nuevaMascota);
+        }
+
+        getMascotas() {
+          return this.mascotas;
+        }
+
+        addBook(book, autor) {
+          this.libros.push({ nombre: book, autor: autor });
+        }
+
+        getBooks() {
+          return this.libros.map((libro) => libro.nombre);
+        }
+      }
+
+      let libros = [
+        {
+          nombre: "It",
+          autor: "Stephen King",
+        },
+        {
+          nombre: "Neuromante",
+          autor: "William Gibson",
+        },
+      ];
+
+      let usuario1 = new Usuario("Juan", "Perez", libros, ["perro", "gato"]);
+
+      console.log(usuario1.getFullName());
+      usuario1.addMascota("pez");
+
+      usuario1.getMascotas();
+
+      usuario1.addBook("Drácula", "Bram Stoker");
+      console.log('Libros:', usuario1.getBooks());
+    </script>
+  </body>
+</html>
